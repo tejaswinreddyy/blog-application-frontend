@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "./api";
 
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
@@ -15,7 +16,7 @@ const CreateBlog = () => {
     
     e.preventDefault();
       const blog = { title, description, published };
-      await axios.post("http://localhost:8080/blogs", blog, { withCredentials: true });
+      await api.post("/blogs", blog, { withCredentials: true });
       navigate("/blogs/user-blogs");
     } catch (error) {
       console.error("Error creating blog:", error);

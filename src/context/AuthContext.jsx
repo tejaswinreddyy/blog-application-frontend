@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../components/api";
 
 const authContext = createContext();
 
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/account", {
+      const response = await api.get("/account", {
         withCredentials: true,
       });
 
@@ -43,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try{   
-      const response = await axios.post("http://localhost:8080/logout", {
+      const response = await api.post("/logout", {
         Credential:"includes"
       });
   

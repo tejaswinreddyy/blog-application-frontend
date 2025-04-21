@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "./api";
 
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -12,8 +13,8 @@ const UserBlogs = () => {
   const fetchUserBlogs = async () => {
     try {
       const backendPage = page - 1;
-      const response = await axios.get(
-        `http://localhost:8080/blogs/user-blogs?page=${backendPage}&size=${size}`,
+      const response = await api.get(
+        `/blogs/user-blogs?page=${backendPage}&size=${size}`,
         { withCredentials: true }
       );
       setBlogs(response.data.data.data);
@@ -36,8 +37,8 @@ const UserBlogs = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(
-        `http://localhost:8080/blogs/${blogId}`,
+      const response = await api.delete(
+        `/blogs/${blogId}`,
         { withCredentials: true }
       );
 

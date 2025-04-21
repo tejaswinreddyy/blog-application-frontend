@@ -1,14 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "./api";
 
 export default function BlogDetail() {
   const { blogId } = useParams();
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/blogs/${blogId}`, { withCredentials: true })
+    api
+      .get(`/blogs/${blogId}`, { withCredentials: true })
       .then((res) => {
         setBlog(res.data.data);
       })

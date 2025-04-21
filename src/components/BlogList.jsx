@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from './api';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,8 +17,8 @@ const BlogList = () => {
     const fetchBlogs = async () => {
       try {
         const backendPage = page - 1;
-        const response = await axios.get(
-          `http://localhost:8080/blogs?page=${backendPage}&size=${size}`,
+        const response = await api.get(
+          `/blogs?page=${backendPage}&size=${size}`,
           { withCredentials: true }
         );
         setBlogs(response.data.data.data);

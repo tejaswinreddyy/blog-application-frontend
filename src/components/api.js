@@ -2,8 +2,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: `${import.meta.env.VITE_API_URL}`,
   withCredentials: true, // important if your backend uses cookies (e.g., Spring Security)
 });
-
+-+++++++++++------
 export default api;

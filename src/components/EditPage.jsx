@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "./api";
 
 export default function EditBlog() {
   const { blogId } = useParams();
@@ -8,7 +9,7 @@ export default function EditBlog() {
   const [blog, setBlog] = useState({ title: "", description: "", published: false, userId: "" });
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/blogs/${blogId}`, { withCredentials: true })
+    api.get(`/blogs/${blogId}`, { withCredentials: true })
       .then(res => {
         const fetchedBlog = res.data.data;
         setBlog(fetchedBlog);  
@@ -22,8 +23,8 @@ export default function EditBlog() {
     e.preventDefault();
 
     try {
-      await axios.put(
-        `http://localhost:8080/blogs/${blogId}`,
+      await api.put(
+        `/blogs/${blogId}`,
         { 
           ...blog,  
           userId: blog.userId 

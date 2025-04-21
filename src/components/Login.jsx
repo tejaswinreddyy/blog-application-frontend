@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import api from "./api";
 
 const Login = () => {
   const [username, setUsername] = useState(""); 
@@ -19,9 +20,9 @@ const Login = () => {
     formData.append("password", password);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/login",
-        formData.toString(),
+      const response = await api.post(
+        "/login",
+        formData,
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
