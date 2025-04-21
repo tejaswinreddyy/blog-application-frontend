@@ -8,7 +8,7 @@ export const useAuth = () => useContext(authContext);
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   const checkAuthStatus = async () => {
@@ -28,16 +28,12 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       localStorage.setItem("isAuthenticated", "false");
     } finally {
-      setLoading(false); // Set loading to false after the check
+      setLoading(false); 
     }
   };
 
   useEffect(() => {
     const result = localStorage.getItem("isAuthenticated");
-    // if (result !== null && result !== undefined) {
-    //   if (result === true) setIsAuthenticated("true");
-    //   else checkAuthStatus();
-    // }
       setIsAuthenticated(result === "true");
   }, []);
 
@@ -61,7 +57,6 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
     
-    // Potentially make an API call to invalidate server-side session
   };
 
   const value = {

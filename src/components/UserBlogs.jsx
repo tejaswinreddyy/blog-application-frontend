@@ -43,7 +43,6 @@ const UserBlogs = () => {
 
       if (response.status === 200) {
         alert("Blog deleted successfully!");
-        // Remove deleted blog from state
         setBlogs((prevBlogs) => prevBlogs.filter((b) => b.blogId !== blogId));
       }
     } catch (error) {
@@ -70,7 +69,6 @@ const UserBlogs = () => {
               </span>
             </div>
 
-            {/* Edit/Delete buttons */}
             <div className="mt-4 flex gap-2">
               <button
                 onClick={() => handleEdit(blog.blogId)}
@@ -89,7 +87,6 @@ const UserBlogs = () => {
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="flex justify-between items-center mt-6">
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 1))}

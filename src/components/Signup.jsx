@@ -1,4 +1,3 @@
-// File: src/pages/Signup.jsx
 import React, { useState } from 'react';
 import api from "./api";
 import { Eye, EyeOff } from 'lucide-react';
@@ -28,7 +27,7 @@ const Signup = () => {
 
   const togglePassword = () => {
     setShowPassword(true);
-    setTimeout(() => setShowPassword(false), 2000); // show for 2 seconds
+    setTimeout(() => setShowPassword(false), 2000); 
   };
 
   return (

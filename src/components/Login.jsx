@@ -1,11 +1,10 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState(""); // backend expects 'username'
+  const [username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const {setIsAuthenticated} = useAuth();
@@ -27,12 +26,11 @@ const Login = () => {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          withCredentials: true, // important for session auth
+          withCredentials: true, 
         }
       );
 
       if (response.status === 200) {
-        // ✅ Save credentials to localStorage
         setIsAuthenticated(response.data.body.data.enabled);
 
         alert("Login successful!");

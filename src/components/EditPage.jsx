@@ -11,7 +11,7 @@ export default function EditBlog() {
     axios.get(`http://localhost:8080/blogs/${blogId}`, { withCredentials: true })
       .then(res => {
         const fetchedBlog = res.data.data;
-        setBlog(fetchedBlog);  // Ensure the userId is preserved here
+        setBlog(fetchedBlog);  
       })
       .catch(err => {
         console.error("Failed to fetch blog for editing:", err);
@@ -21,18 +21,17 @@ export default function EditBlog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Ensure the userId is included in the payload when updating
     try {
       await axios.put(
         `http://localhost:8080/blogs/${blogId}`,
         { 
-          ...blog,  // Spread the existing blog data
-          userId: blog.userId // Ensure userId is sent in the update payload
+          ...blog,  
+          userId: blog.userId 
         },
         { withCredentials: true }
       );
       alert("Blog updated successfully!");
-      navigate(`/blogs/${blogId}`); // Redirect to the blog detail page after update
+      navigate(`/blogs/${blogId}`);
     } catch (error) {
       console.error("Failed to update blog:", error);
       alert("Failed to update blog.");

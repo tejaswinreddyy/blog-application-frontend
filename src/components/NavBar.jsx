@@ -10,7 +10,6 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      {/* App title redirecting to home */}
       <Link to="/" className="bg-white text-blue-600 px-4 py-2 rounded font-bold hover:bg-blue-100">
         BLOGS
       </Link>
@@ -18,7 +17,6 @@ const Navbar = () => {
       <div className="space-x-4 flex items-center">
         {isAuthenticated ? (
           <>
-            {/* Create Blog Button */}
             <Link
               to="/blogs/create-blog"
               className="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition"
@@ -26,7 +24,6 @@ const Navbar = () => {
               Create Blog
             </Link>
 
-            {/* User Blogs Button */}
             <Link
               to="/blogs/user-blogs"
               className="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition"
@@ -34,7 +31,6 @@ const Navbar = () => {
               MY BLOGS
             </Link>
 
-            {/* Logout Button */}
             <button
               onClick={()=>logout()}
               to="/"
