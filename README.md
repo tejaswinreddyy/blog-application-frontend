@@ -1,12 +1,36 @@
-# React + Vite
+# 🖥️ Blog Application Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the Blog Application built using **React**. It provides a responsive UI for users to register, login, create blogs, edit, delete, and view blogs. Authentication is handled via sessions using `HttpOnly` cookies.
 
-Currently, two official plugins are available:
+## 🛠️ Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **React Router DOM** – for client-side routing
+- **Axios** – for making API calls
+- **Tailwind CSS** – for styling
+- **React Context API** – for managing authentication state
 
-## Expanding the ESLint configuration
+## 📦 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User Authentication (Login/Logout/Register)
+- Create, Update, Delete blogs
+- View all blogs and individual blog detail
+- User-specific blog management
+- Pagination for user blogs
+- Protected routes based on login status
+- Form validation and loading states
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or above)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/blog-frontend.git
+cd blog-frontend
